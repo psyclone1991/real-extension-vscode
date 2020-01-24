@@ -3,6 +3,7 @@
 	"displayName": "REal_Extension",
 	"description": "Real world example",
 	"version": "0.0.1",
+	"publisher": "Niharika",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
@@ -10,7 +11,9 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.helloWorld",
+		"onCommand:extension.insertLink",
+		"onCommand:extension.insertFig"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -18,6 +21,14 @@
 			{
 				"command": "extension.helloWorld",
 				"title": "Hello World"
+			},
+			{
+				"command": "extension.insertLink",
+				"title": "Insert Markdown link to file"
+			},
+			{
+				"command": "extension.insertFig",
+				"title": "Insert HTML figure"
 			}
 		]
 	},
