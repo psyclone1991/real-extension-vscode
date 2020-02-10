@@ -19,6 +19,16 @@ export function activate(context: vscode.ExtensionContext) {
 
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World!');
+		const panel = vscode.window.createWebviewPanel(
+			'catCoding',
+			'Cat Coding',
+			vscode.ViewColumn.One,
+			{enableScripts: true
+			}
+		  );
+	
+		  // And set its HTML content
+		  panel.webview.html = getWebviewContent();
 	});
 
 	context.subscriptions.push(helloDisposable);
@@ -35,6 +45,29 @@ export function activate(context: vscode.ExtensionContext) {
 
 	});
 context.subscriptions.push(figDisposable);
+     
+    
+  
+function getWebviewContent() {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cat Coding</title>
+
+</head>
+<body>
+<svg>
+  <circle style="fill: #69b3a2" stroke="black" cx=50 cy=50 r=40></circle>
+</svg>
+
+<object type="text/html" data="http://localhost:4200/" width="1920px" height="1080px" style="overflow:auto;border:5px">
+</object>
+ 
+</body>
+</html>`;
+}
 }
 
 // this method is called when your extension is deactivated
